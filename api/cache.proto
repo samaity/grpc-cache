@@ -1,0 +1,26 @@
+syntax= "proto3";
+
+package cachepb;
+
+option go_package = "github.com/samaity/grpc-cache/api/cachepb";
+
+service Cache {
+    rpc Put(PutReq) returns (PutResp) {}
+    rpc Get(GetReq) returns (GetResp) {}
+}
+
+message PutReq {
+    string key = 1;
+    bytes val = 2;
+}
+
+message PutResp {
+}
+
+message GetReq {
+    string key = 1;
+}
+
+message GetResp {
+    bytes val = 1;
+}
